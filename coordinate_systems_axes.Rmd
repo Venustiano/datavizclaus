@@ -478,16 +478,16 @@ crs_longlat <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 p_longlat <- ggplot(world_sf) + 
   geom_sf(fill = "#E69F00B0", color = "black", size = 0.5/.pt) + 
   coord_sf(expand = FALSE, crs = crs_longlat) + 
-  scale_x_continuous(
-    name = "longitude",
-    breaks = seq(-160, 160, by = 20),
-    labels = parse(text = c("NA", "NA", "120*degree*W", "NA", "NA", "60*degree*W", "NA", "NA", "0*degree", "NA", "NA", "60*degree*E", "NA", "NA", "120*degree*E", "NA", "NA"))
-  ) +
-  scale_y_continuous(
-    name = "latitude",
-    breaks = seq(-80, 80, by = 20),
-    labels = parse(text = c("80*degree*S", "NA", "40*degree*S", "NA", "0*degree", "NA", "40*degree*N", "NA", "80*degree*N"))
-  ) +
+#  scale_x_continuous(
+#    name = "longitude",
+#    breaks = seq(-160, 160, by = 20),
+#    labels = parse(text = c("NA", "NA", "120*degree*W", "NA", "NA", "60*degree*W", "NA", "NA", "0*degree", "NA", "NA", "60*degree*E", "NA", "NA", "120*degree*E", "NA", "NA"))
+#  ) +
+#  scale_y_continuous(
+#    name = "latitude",
+#    breaks = seq(-80, 80, by = 20),
+#    labels = parse(text = c("80*degree*S", "NA", "40*degree*S", "NA", "0*degree", "NA", "40*degree*N", "NA", "80*degree*N"))
+#  ) +
   theme_dviz_grid(12) +
   theme(
     panel.background = element_rect(fill = "#56B4E950", color = "grey30", size = 0.5),
