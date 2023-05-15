@@ -190,6 +190,9 @@ There are cases, however, when axis or legend titles can be omitted, namely when
 (ref:tech-stocks-minimal-labeling) Stock price over time for four major tech companies. The stock price for each company has been normalized to equal 100 in June 2012. This figure is a slightly modified version of Figure \@ref(fig:tech-stocks-good-legend) in Chapter \@ref(redundant-coding). Here, the *x* axis representing time does not have a title. It is clear from the context that the numbers 2013, 2014, etc. refer to years.
 
 ```{r tech-stocks-minimal-labeling, fig.cap = '(ref:tech-stocks-minimal-labeling)'}
+# Convert tech_stocks into a dataframe
+tech_stocks <- as.data.frame(tech_stocks)
+
 price_plot_base <- ggplot(tech_stocks, aes(x = date, y = price_indexed, color = ticker)) +
   geom_line(na.rm = TRUE) +
   scale_color_manual(
