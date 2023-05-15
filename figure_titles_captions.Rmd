@@ -407,9 +407,9 @@ hline_bottom <- segmentsGrob(
   gp = gpar(lwd = 0.75, col = "black")
 )
 
-t1 <- tableGrob(boxoffice_ctr, rows = rep("", nrow(boxoffice)), theme = tt1)
-t1$layout$clip <- "off"
-t1 <- gtable_add_padding(t1, margin(14, 16, 0, -2))
+# t1 <- tableGrob(boxoffice_ctr, rows = rep("", nrow(boxoffice)), theme = tt1)
+# t1$layout$clip <- "off"
+# t1 <- gtable_add_padding(t1, margin(14, 16, 0, -2))
 
 t2 <- tableGrob(boxoffice_ctr, rows = rep("", nrow(boxoffice)), theme = tt2)
 t2$layout$clip <- "off"
