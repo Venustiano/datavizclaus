@@ -32,8 +32,8 @@ boxoffice_display <- boxoffice %>%
          Rank = rank,
          Title = title,
          `Weekend gross` = amount_text,
-         ` ` = B,
-         ` ` = C)
+         `  ` = B,
+         `   ` = C)
 
 knitr::kable(
   boxoffice_display,
