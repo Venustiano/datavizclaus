@@ -522,6 +522,9 @@ Sets of repetitive figures are often a consequence of multi-part stories where e
 
 ```{r tech-stocks-repetitive, fig.asp = 2*0.5, fig.cap = '(ref:tech-stocks-repetitive)'}
 
+# Converting tech_stocks into a dataframe
+tech_stocks <- as.data.frame(tech_stocks)
+
 final_prices <- filter(tech_stocks, date == ymd("2017-05-31"))
 
 fb_price_plot <- ggplot(
