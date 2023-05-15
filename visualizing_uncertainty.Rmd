@@ -406,7 +406,8 @@ cacao %>%
 fit <- lm(rating ~ 1, data = cacao_single)
 
 CI_df <- data.frame(type = c(0.8, 0.95, 0.99)) %>%
-  mutate(df = map(type, ~tidy(emmeans(fit, ~ 1, options = list(level = .x))))) %>%
+  # mutate(df = map(type, ~tidy(emmeans(fit, ~ 1, options = list(level = .x))))) %>%
+  mutate(df = map(type, ~tidy(emmeans(fit, ~ 1, options = list(level = .x)),conf.int=TRUE))) %>%
   unnest() %>%
   select(type, estimate, std.error, conf.low, conf.high) %>%
   mutate(type = paste0(signif(100*type, 2), "% confidence interval"))
