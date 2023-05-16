@@ -512,7 +512,8 @@ fit_CA <- lm(rating ~ 1, data = cacao_CA)
 fit_CH <- lm(rating ~ 1, data = cacao_CH)
 
 CI_CA <- data.frame(level = c(0.99, 0.95, 0.8)) %>%
-  mutate(df = map(level, ~tidy(emmeans(fit_CA, ~ 1, options = list(level = .x))))) %>%
+  # mutate(df = map(level, ~tidy(emmeans(fit_CA, ~ 1, options = list(level = .x))))) %>%
+  mutate(df = map(level, ~tidy(emmeans(fit_CA, ~ 1, options = list(level = .x)),conf.int=TRUE))) %>%
   unnest() %>%
   select(level, estimate, conf.low, conf.high) %>%
   mutate(
@@ -522,7 +523,8 @@ CI_CA <- data.frame(level = c(0.99, 0.95, 0.8)) %>%
   )
 
 CI_CH <- data.frame(level = c(0.99, 0.95, 0.8)) %>%
-  mutate(df = map(level, ~tidy(emmeans(fit_CH, ~ 1, options = list(level = .x))))) %>%
+  # mutate(df = map(level, ~tidy(emmeans(fit_CH, ~ 1, options = list(level = .x))))) %>%
+  mutate(df = map(level, ~tidy(emmeans(fit_CH, ~ 1, options = list(level = .x)),conf.int=TRUE))) %>%
   unnest() %>%
   select(level, estimate, conf.low, conf.high) %>%
   mutate(
@@ -674,7 +676,8 @@ cacao_small <-
 fit <- lm(rating ~ location, data = cacao_small)
 
 conf_df <- data.frame(level = c(0.99, 0.95, 0.8)) %>%
-  mutate(df = map(level, ~tidy(emmeans(fit, ~location, options = list(level = .x))))) %>%
+  # mutate(df = map(level, ~tidy(emmeans(fit, ~location, options = list(level = .x))))) %>%
+  mutate(df = map(level, ~tidy(emmeans(fit, ~location, options = list(level = .x)),conf.int=TRUE))) %>%
   unnest() %>%
   select(level, location, estimate, std.error, conf.low, conf.high) %>%
   mutate(level = paste0(signif(100*level, 2), "%"))
