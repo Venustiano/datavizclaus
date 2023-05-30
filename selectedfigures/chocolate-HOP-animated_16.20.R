@@ -1,6 +1,7 @@
 source("../_common.R")
 
 library(gganimate)
+library(forcats)
 
 cacao %>% 
   filter(location %in% c("Canada", "U.S.A.")) %>%
