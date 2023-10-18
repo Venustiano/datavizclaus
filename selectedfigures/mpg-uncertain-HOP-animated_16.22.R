@@ -1,11 +1,10 @@
-source("../_common.R")
-
+library(dviz.supp)
 library(gganimate)
 library(mgcv)
 library(ungeviz)
 
 # devtools::install_github("thomasp85/transformr")
-# It seems that gganimate does not work in jupyternotebook
+# Works in RStudio but it seems that gganimate does not work in jupyternotebook
 
 #set.seed(8692282)
 set.seed(8692276)
