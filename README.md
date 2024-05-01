@@ -1,3 +1,7 @@
+# Render the chapters on Binder
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Venustiano/datavizclaus/HEAD?urlpath=lab)
+
 # Fundamentals of Data Visualization
 A guide to making visualizations that accurately reflect the data, tell a story, and look professional.
 
