@@ -23,7 +23,7 @@
                     "foreign","withr","units","modelr","crayon",
                     "arrayhelpers", "progress","jpeg","rnaturalearth",
                     "readxl","digest","classInt","xtable","munsell",
-                    "ggplot2movies", "base64enc","rmarkdown",
+                    "ggplot2movies", "base64enc","rmarkdown", "tinytex",
                     "tikzDevice","scales","bookdown","remotes",
                     "FactoMineR","tidymodels","vcd"," lwgeom",
                     "gridGraphics","caret", "repr", "GGally",
@@ -40,3 +40,10 @@ remotes::install_github('DavisVaughan/strapgod')
 remotes::install_github('ropensci/plotly')
 remotes::install_github('ropensci/jsonvalidate')
 remotes::install_github("thomasp85/transformr")
+
+tinytex::install_tinytex()
+tinytex:::install_yihui_pkgs()
+tinytex::tlmgr_install(c('psnfss', 'metafont', 'mfware', 'inconsolata', 'tex', 
+                         'ae', 'parskip', 'listings', 'pgf', 'preview', 'grfext',
+                        'standalone', 'luatex85', 'pgfplots'))
+tinytex::tlmgr_update()               # update everything
