@@ -2,6 +2,7 @@ libudunits2-dev
 libgdal-dev
 libgeos-dev
 libproj-dev
+libglpk40
 libmagick++-dev
 libxt6
 libxtst6
