@@ -43,9 +43,9 @@ remotes::install_github('ropensci/plotly')
 remotes::install_github('ropensci/jsonvalidate')
 remotes::install_github("thomasp85/transformr")
 
-tinytex::install_tinytex()
-tinytex:::install_yihui_pkgs()
-tinytex::tlmgr_install(c('psnfss', 'metafont', 'mfware', 'inconsolata', 'tex', 
-                         'ae', 'parskip', 'listings', 'pgf', 'preview', 'grfext',
-                        'standalone', 'luatex85', 'pgfplots'))
-tinytex::tlmgr_update()               # update everything
+# tinytex::install_tinytex()
+# tinytex:::install_yihui_pkgs()
+# tinytex::tlmgr_install(c('psnfss', 'metafont', 'mfware', 'inconsolata', 'tex', 
+#                          'ae', 'parskip', 'listings', 'pgf', 'preview', 'grfext',
+#                         'standalone', 'luatex85', 'pgfplots'))
+# tinytex::tlmgr_update()               # update everything
