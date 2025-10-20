@@ -44,12 +44,9 @@ This will start the application and map port 8888 of your machine to the contain
 If you want your changes (such as editing code or saving output) to be saved outside the container, mount your local project directory as a volume:
 
 ```bash
-docker run -p 8888:8888 -v $(pwd):/app datavizclaus
+docker run -p 8888:8888 -v $(pwd):/home/jovyan/local_datavisclaus datavizclaus
 ```
-
-Replace `/app` with the working directory inside the container if different.
-
-Now, any changes you make inside the container (in `/app`) will appear in your local directory.
+Now, any changes you make inside the container (in `/local_datavisclaus`) will appear in your local directory.
 
 ## 5. Access the Application
 
