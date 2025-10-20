@@ -4,6 +4,8 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Venustiano/datavizclaus/HEAD?urlpath=lab)
 
+## Test environments
+
 [![launch rocker binder](https://img.shields.io/badge/launch%20-rocker%20binder-6DA7DE?logo=rstudioide)](https://mybinder.org/v2/gh/Venustiano/datavizclaus/rockerbinder?urlpath=rstudio)
 
 [![launch rocker binder](https://img.shields.io/badge/launch%20-rocker%20binder-009CEF?logo=rstudioide)](https://binderhub.app.rug.nl/v2/gh/Venustiano/datavizclaus/rockerbinder?urlpath=rstudio)
