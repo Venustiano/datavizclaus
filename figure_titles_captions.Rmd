@@ -276,12 +276,14 @@ boxoffice_ctr <- tibble(
   Amount = c("$71,565,498", "$36,169,328", "$19,928,525", "$8,805,843", "$7,316,746")
 )
 
-table_base_size = 10
-zgrob <- function(...) ggplot2::zeroGrob()
+table_base_size = 9
+zgrob <- function(...) list(ggplot2::zeroGrob())
 
 tt1 <- ttheme_minimal(
   base_size = table_base_size,
   base_family = dviz_font_family,
+  # padding = unit(c(4, 6), "mm"),  # Increase horizontal padding
+
   core = list(
     fg_params = list(
       fontface = rep(c(1L, 3L, 1L), each = 5)
@@ -301,7 +303,8 @@ tt1 <- ttheme_minimal(
       lwd = 1
     )
   ),
-  rowhead = list(fg_fun = zgrob, bg_fun = zgrob)
+  # rowhead = list(fg_fun = zgrob, bg_fun = zgrob)
+  rowhead = list(fg_params = list(col = "white"), bg_params = list(fill = "white"))
 )
 
 tt2 <- ttheme_default(
@@ -329,7 +332,8 @@ tt2 <- ttheme_default(
       fill = "grey85"
     )
   ),
-  rowhead = list(fg_fun = zgrob, bg_fun = zgrob)
+  # rowhead = list(fg_fun = zgrob, bg_fun = zgrob)
+  rowhead = list(fg_params = list(col = "white"), bg_params = list(fill = "white"))
 )
 
 tt3 <- ttheme_minimal(
@@ -357,7 +361,8 @@ tt3 <- ttheme_minimal(
       col = NA
     )
   ),
-  rowhead = list(fg_fun = zgrob, bg_fun = zgrob)
+  # rowhead = list(fg_fun = zgrob, bg_fun = zgrob)
+  rowhead = list(fg_params = list(col = "white"), bg_params = list(fill = "white"))
 )
 
 tt4 <- ttheme_default(
@@ -388,7 +393,8 @@ tt4 <- ttheme_default(
       fill = "#4069A6"#"grey65"
     )
   ),
-  rowhead = list(fg_fun = zgrob, bg_fun = zgrob)
+  # rowhead = list(fg_fun = zgrob, bg_fun = zgrob)
+  rowhead = list(fg_params = list(col = "white"), bg_params = list(fill = "white"))
 )
 
 # horizontal line to be used as separator
@@ -407,13 +413,13 @@ hline_bottom <- segmentsGrob(
   gp = gpar(lwd = 0.75, col = "black")
 )
 
-# t1 <- tableGrob(boxoffice_ctr, rows = rep("", nrow(boxoffice)), theme = tt1)
-# t1$layout$clip <- "off"
-# t1 <- gtable_add_padding(t1, margin(14, 16, 0, -2))
+t1 <- tableGrob(boxoffice_ctr, rows = rep("", nrow(boxoffice)), theme = tt1)
+t1$layout$clip <- "off"
+t1 <- gtable_add_padding(t1, margin(14, 20, 0, -2))
 
 t2 <- tableGrob(boxoffice_ctr, rows = rep("", nrow(boxoffice)), theme = tt2)
 t2$layout$clip <- "off"
-t2 <- gtable_add_padding(t2, margin(14, 16, 0, -2))
+t2 <- gtable_add_padding(t2, margin(14, 20, 0, -2))
 
 t3 <- tableGrob(boxoffice, rows = rep("", nrow(boxoffice)), theme = tt3)
 t3 <- gtable_add_grob(t3,
@@ -423,11 +429,11 @@ t3 <- gtable_add_grob(t3,
   grobs = hline_bottom,
   t = 6, b = 6, l = 2, r = 4)
 t3$layout$clip <- "off"
-t3 <- gtable_add_padding(t3, margin(14, 14, 0, -7))
+t3 <- gtable_add_padding(t3, margin(14, 18, 0, -7))
 
 t4 <- tableGrob(boxoffice, rows = rep("", nrow(boxoffice)), theme = tt4)
 t4$layout$clip <- "off"
-t4 <- gtable_add_padding(t4, margin(14, 16, 0, -2))
+t4 <- gtable_add_padding(t4, margin(14, 20, 0, -2))
 
 plot_grid(
   stamp_ugly(t1), NULL, stamp_ugly(t2),
