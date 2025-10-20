@@ -1,4 +1,6 @@
- install.packages(c("nycflights13", "gapminder", "RColorBrewer",
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+install.packages(c("nycflights13", "gapminder", "RColorBrewer",
                     "gganimate","emmeans","mgcv","nlme","broom",
                     "tidybayes","maps","statebins","sf","maptools",
                     "sp","rgeos","ggspatial","geofacet","misc3d",
@@ -27,7 +29,7 @@
                     "tikzDevice","scales","bookdown","remotes",
                     "FactoMineR","tidymodels","vcd"," lwgeom",
                     "gridGraphics","caret", "repr", "GGally",
-                    "IRdisplay", "pdbZMQ", "argparse"))
+                    "IRdisplay", "pdbZMQ", "argparse","chattr"))
 
 remotes::install_github("rijksuniversiteit-groningen/cds-utils",subdir="rugutils")
 remotes::install_github("rijksuniversiteit-groningen/rugplot@venus/feature/schemarefs")
@@ -41,9 +43,9 @@ remotes::install_github('ropensci/plotly')
 remotes::install_github('ropensci/jsonvalidate')
 remotes::install_github("thomasp85/transformr")
 
-tinytex::install_tinytex()
-tinytex:::install_yihui_pkgs()
-tinytex::tlmgr_install(c('psnfss', 'metafont', 'mfware', 'inconsolata', 'tex', 
-                         'ae', 'parskip', 'listings', 'pgf', 'preview', 'grfext',
-                        'standalone', 'luatex85', 'pgfplots'))
-tinytex::tlmgr_update()               # update everything
+# tinytex::install_tinytex()
+# tinytex:::install_yihui_pkgs()
+# tinytex::tlmgr_install(c('psnfss', 'metafont', 'mfware', 'inconsolata', 'tex', 
+#                          'ae', 'parskip', 'listings', 'pgf', 'preview', 'grfext',
+#                         'standalone', 'luatex85', 'pgfplots'))
+# tinytex::tlmgr_update()               # update everything
