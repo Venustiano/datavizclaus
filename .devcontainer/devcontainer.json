@@ -4,9 +4,9 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
-  "workspaceFolder": "/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-  "remoteUser": "root",
+  "workspaceFolder": "/home/jovyan/work",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind,consistency=cached",
+  "remoteUser": "jovyan",
   "features": {},
   "forwardPorts": [],
   "postCreateCommand": "",
