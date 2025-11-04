@@ -1,19 +1,18 @@
 {
-  "name": "dvenv v1.9.2 (docker.io/venustiano/dvenv:v1.9.2)",
-  "image": "docker.io/venustiano/dvenv:v1.9.2",
-  "containerEnv": {
-    "DEBIAN_FRONTEND": "noninteractive",
-    "CODE_EXTENSIONSDIR": "/home/jovyan/.local/share/code-server/extensions"
+  "name": "datavizclaus Codespace",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
   },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "remoteUser": "root",
+  "features": {},
+  "forwardPorts": [],
+  "postCreateCommand": "",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-toolsai.jupyter",
-        "esbenp.prettier-vscode"
-      ]
+      "extensions": []
     }
-  },
-  "forwardPorts": [8888, 8787, 3000],
-  "overrideCommand": false
+  }
 }
