@@ -3,7 +3,10 @@ FROM rocker/binder:latest
 # Avoid interactive prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Small prep step to ensure HTTPS transport and certs available
+# Make sure subsequent RUNs execute as root (some devcontainer tooling can change the user)
+USER root
+
+# Minimal prerequisites for apt over HTTPS and certificates
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-transport-https \
     ca-certificates \
@@ -13,7 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     locales \
   && rm -rf /var/lib/apt/lists/*
 
-# Install main packages. If first attempt fails, run apt-get update --fix-missing and try again for clearer output.
+# Main apt install step (retry/fallback to give clearer errors on transient failures)
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
@@ -66,15 +69,15 @@ RUN set -eux; \
       texlive-pictures ); \
     apt-get clean; rm -rf /var/lib/apt/lists/*
 
-# Copy pip requirements and R installer from the repo root (these files must exist there)
+USER jovyan
+# Copy pip requirements and R installer (these must exist at repo root)
 COPY requirements.txt install.R /tmp/
 
-# Install pip requirements
+# Install Python pip requirements
 RUN python3 -m pip install --no-cache-dir --requirement /tmp/requirements.txt
 
-# Install R packages via the provided script
+# Run the R install script
 RUN Rscript /tmp/install.R
 
-# Use the typical rocker user/workspace
+# Default working directory and switch back to the jovyan user used by rocker images
 WORKDIR /home/jovyan/work
-USER jovyan
