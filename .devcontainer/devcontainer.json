@@ -4,7 +4,8 @@
     "dockerfile": "Dockerfile"
   },
   "workspaceFolder": "/home/jovyan/work",
-  "remoteUser": "root",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind,consistency=cached",
+  "remoteUser": "jovyan",
   "forwardPorts": [8787, 8888],
   "postStartCommand": "/usr/local/bin/start-services.sh",
   "portsAttributes": {
