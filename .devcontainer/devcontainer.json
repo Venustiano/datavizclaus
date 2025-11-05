@@ -7,8 +7,8 @@
   "workspaceFolder": "/home/jovyan/work",
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind,consistency=cached",
   "remoteUser": "jovyan",
+  "overrideCommand": false,
   "forwardPorts": [8787, 8888],
-  "postStartCommand": "/usr/local/bin/start-services.sh",
   "portsAttributes": {
     "8787": {
       "label": "RStudio Server"
