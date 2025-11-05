@@ -1,18 +1,18 @@
 {
-  "name": "datavizclaus Codespace",
+  "name": "datavizclaus",
   "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
+    "dockerfile": "Dockerfile"
   },
   "workspaceFolder": "/home/jovyan/work",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind,consistency=cached",
-  "remoteUser": "jovyan",
-  "features": {},
-  "forwardPorts": [],
-  "postCreateCommand": "",
-  "customizations": {
-    "vscode": {
-      "extensions": []
+  "remoteUser": "root",
+  "forwardPorts": [8787, 8888],
+  "postStartCommand": "/usr/local/bin/start-services.sh",
+  "portsAttributes": {
+    "8787": {
+      "label": "RStudio Server"
+    },
+    "8888": {
+      "label": "JupyterLab"
     }
   }
 }
