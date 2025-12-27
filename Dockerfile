@@ -1,6 +1,8 @@
 FROM rocker/binder:latest
-# this env var is recognized by jupyter-vscode-proxy:
-# ENV CODE_EXTENSIONSDIR=/opt/share/code-server
+
+# Provide the VS Code Marketplace gallery endpoint (EXTENSIONS_GALLERY)
+ENV EXTENSIONS_GALLERY='{"serviceUrl":"https://marketplace.visualstudio.com/_apis/public/gallery","itemUrl":"https://marketplace.visualstudio.com/items"}'
+
 
 # Switch to root for installing system dependencies
 USER root
@@ -49,16 +51,8 @@ USER ${NB_USER}
 RUN echo "PATH: $PATH" && \
     which code-server || find / -type f -name code-server 2>/dev/null | head -20
 
-
 COPY vscode-extensions.txt /tmp/vscode-extensions.txt
-RUN curl -L \
-    "https://drive.usercontent.google.com/download?id=1c06KD0Gt-0FdvNavqD_u_Dxe9gXOck_k&confirm=xxx" \
-    -o /tmp/GitHub.copilot-latest.vsix && \
-    code-server --install-extension /tmp/GitHub.copilot-latest.vsix && \
-    rm /tmp/GitHub.copilot-latest.vsix && \
-    xargs -n 1 code-server --extensions-dir ${CODE_EXTENSIONSDIR} --install-extension < /tmp/vscode-extensions.txt
-
-# RUN xargs -n 1 code-server --extensions-dir ${CODE_EXTENSIONSDIR}  --install-extension < /tmp/vscode-extensions.txt
+RUN xargs -n 1 code-server --extensions-dir ${CODE_EXTENSIONSDIR} --install-extension < /tmp/vscode-extensions.txt
 
 # Install from the requirements.txt file
 COPY requirements.txt install.R /tmp/
