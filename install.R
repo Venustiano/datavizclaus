@@ -29,7 +29,7 @@ install.packages(c("nycflights13", "gapminder", "RColorBrewer",
                     "tikzDevice","scales","bookdown","remotes",
                     "FactoMineR","tidymodels","vcd"," lwgeom",
                     "gridGraphics","caret", "repr", "GGally",
-                    "IRdisplay", "pdbZMQ", "argparse","chattr"))
+                    "IRdisplay", "pdbZMQ", "argparse","chattr"), repos="https://cloud.r-project.org")
 
 remotes::install_github("rijksuniversiteit-groningen/cds-utils",subdir="rugutils")
 remotes::install_github("rijksuniversiteit-groningen/rugplot@venus/feature/schemarefs")
