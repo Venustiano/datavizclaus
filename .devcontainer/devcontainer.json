@@ -4,17 +4,7 @@
   "workspaceFolder": "/home/jovyan/work",
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind,consistency=cached",
   "remoteUser": "jovyan",
-  "overrideCommand": false,
-  "postStartCommand": "sudo /home/jovyan/work/. devcontainer/start-services.sh",
-  "forwardPorts": [8787, 8888],
-  "portsAttributes": {
-    "8787":  {
-      "label": "RStudio Server",
-      "onAutoForward": "notify"
-    },
-    "8888": {
-      "label": "Jupyter Lab",
-      "onAutoForward": "notify"
-    }
-  }
+  
+  /* Optional: Commands run after container is ready */
+  "postCreateCommand": "echo 'Dev container ready!'",
 }
